@@ -11,7 +11,7 @@ from quantities import mV
 import efel
 import matplotlib.pyplot as plt
 import numpy
-from neuron import h, gui
+from neuron import h, gui, load_mechanisms
 
 savepath = './figs/'
 if not os.path.exists(savepath):
@@ -19,7 +19,8 @@ if not os.path.exists(savepath):
 
 
 def main():
-    h.nrn_load_dll('./Mods/nrnmech.dll')
+    # h.nrn_load_dll('./Mods/nrnmech.dll')
+    load_mechanisms('./Mods/')
     h.xopen('pyramidal_cell_weak_bAP_original.hoc')
     cell = h.CA1_PC_Tomko()
 
